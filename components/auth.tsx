@@ -4,7 +4,7 @@ import { SignIn, SignOut } from './actions'
 import { getToken } from 'next-auth/jwt'
 
 export default async function Auth() {
-  const session = await getServerSession<DefaultSession>(authOptions)
+  const session = (await getServerSession(authOptions)) as DefaultSession
   return (
     <header>
       <div>
