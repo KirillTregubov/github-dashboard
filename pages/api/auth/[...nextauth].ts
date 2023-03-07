@@ -8,9 +8,6 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GITHUB_SECRET
     })
   ]
-  // pages: {
-  //   signIn: '/signin'
-  // }
 }
 // {
 //   // Include user.id on session

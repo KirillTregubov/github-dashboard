@@ -6,5 +6,5 @@ export function SignOut() {
 }
 
 export function SignIn() {
-  return <button onClick={() => signIn()}>Sign in</button>
+  return <button onClick={() => signIn('github')}>Sign in</button>
 }
