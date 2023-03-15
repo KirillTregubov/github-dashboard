@@ -1,31 +1,34 @@
-import { getServerSession, DefaultSession } from 'next-auth'
+import { getServerSession } from 'next-auth'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { SignIn, SignOut } from './actions'
-import { getToken } from 'next-auth/jwt'
+import Image from 'next/image'
+import Greeting from './greeting'
 
 export default async function Auth() {
-  const session = (await getServerSession(authOptions)) as DefaultSession
+  const session = await getServerSession(authOptions)
   return (
     <header>
-      <div>
+      <div className="m-2 flex items-center text-lg">
         {session?.user ? (
           <>
             {session.user.image && (
-              <span
-                style={{ backgroundImage: `url('${session.user.image}')` }}
+              <Image
+                src={session.user.image}
+                width={42}
+                height={42}
+                alt="GitHub Avatar"
+                className="inline-block rounded-full"
               />
             )}
-            <span>
-              <small>Signed in as</small>
-              <br />
-              <strong>{session.user.email ?? session.user.name}</strong>
-            </span>
-            <SignOut />
+            <div className="ml-2">
+              <Greeting>{session.user.name ?? session.user.email}</Greeting>
+            </div>
+            <SignOut className="ml-auto" />
           </>
         ) : (
           <>
             <span>You are not signed in</span>
-            <SignIn />
+            <SignIn className="ml-auto" />
           </>
         )}
       </div>
