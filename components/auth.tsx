@@ -1,11 +1,10 @@
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { SignIn, SignOut } from './actions'
 import Image from 'next/image'
 import Greeting from './greeting'
+import { getSession } from '@/lib/auth'
 
 export default async function Auth() {
-  const session = await getServerSession(authOptions)
+  const session = await getSession()
   return (
     <header>
       <div className="m-2 flex items-center text-lg">
