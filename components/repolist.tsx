@@ -1,4 +1,4 @@
-import { fetchRepositories } from '@/lib/fetchers'
+import { fetchUserRepositories } from '@/lib/fetchers'
 
 function RepoListItem({ repo }: { repo: any }) {
   // const { data, error } = useSWR('/api/repos', fetcher)
@@ -24,12 +24,14 @@ function RepoListItem({ repo }: { repo: any }) {
 }
 
 export default async function RepoList() {
-  const data = await fetchRepositories()
+  const data = await fetchUserRepositories()
 
   return (
     <div>
       <h2 className="text-xl font-bold">Repositories</h2>
-      {data}
+      <code>
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      </code>
       {/* <ul className="divide-y divide-gray-200">
         <RepoListItem repo={'hello'} />
       </ul> */}

@@ -15,7 +15,7 @@ export default async function Home() {
           <RepoList />
         </div>
       ) : (
-        <div>
+        <div className="m-2">
           <p>Welcome to dashboard! Please authenticate to continue.</p>
         </div>
       )}
