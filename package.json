@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format:check": "prettier --check --ignore-path .gitignore .",
-    "format": "prettier --write --ignore-path .gitignore ."
+    "format:check": "prettier --check .",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@types/node": "18.16.1",
