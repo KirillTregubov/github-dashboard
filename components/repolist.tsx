@@ -13,7 +13,7 @@ function RepoListItem({ repo }: { repo: any }) {
   // }
 
   return (
-    <div>Repo</div>
+    <div>{repo.name}</div>
     // <li key={repo.id} className="py-4">
     //   <a href={repo.url} className="text-lg font-medium">
     //     {repo.name}
@@ -29,12 +29,19 @@ export default async function RepoList() {
   return (
     <div>
       <h2 className="text-xl font-bold">Repositories</h2>
-      <code>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
-      </code>
-      {/* <ul className="divide-y divide-gray-200">
-        <RepoListItem repo={'hello'} />
-      </ul> */}
+      <ul className="divide-y divide-gray-200">
+        {data.map((repo) => (
+          <RepoListItem key={repo.id} repo={repo} />
+        ))}
+        {/* <RepoListItem repo={'hello'} /> */}
+      </ul>
+      <details>
+        <summary>Data</summary>
+        <code>
+          <pre>{JSON.stringify(data, null, 2)}</pre>
+        </code>
+      </details>
+      {data.length}
     </div>
   )
 }

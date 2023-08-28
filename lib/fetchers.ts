@@ -9,7 +9,8 @@ export async function fetchUserRepositories() {
     throw new Error('You are not authenticated with GitHub')
   }
 
-  const res = await fetch('https://api.github.com/user/repos', {
+  //   per_page=100&
+  const res = await fetch('https://api.github.com/user/repos?sort=pushed', {
     headers: {
       Accept: 'application/vnd.github+json',
       Authorization: `Bearer ${accessToken}`

@@ -7,8 +7,8 @@ export const authOptions: NextAuthOptions = {
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_SECRET
-      // authorization: { params: { scope: 'public_repo' } },
+      clientSecret: process.env.GITHUB_SECRET,
+      authorization: { params: { scope: 'repo' } }
     })
   ],
   callbacks: {

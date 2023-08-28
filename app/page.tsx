@@ -9,16 +9,18 @@ export default async function Home() {
     <main>
       {/* @ts-expect-error Async Server Component */}
       <Auth />
-      {session ? (
-        <div>
-          {/* @ts-expect-error Async Server Component */}
-          <RepoList />
-        </div>
-      ) : (
-        <div className="m-2">
-          <p>Welcome to dashboard! Please authenticate to continue.</p>
-        </div>
-      )}
+      <div className="mx-2">
+        {session ? (
+          <div>
+            {/* @ts-expect-error Async Server Component */}
+            <RepoList />
+          </div>
+        ) : (
+          <div className="m-2">
+            <p>Welcome to dashboard! Please authenticate to continue.</p>
+          </div>
+        )}
+      </div>
     </main>
   )
 }
